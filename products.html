@@ -11,162 +11,46 @@
 <link href="//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style-starter.css">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 <style>
-/* General Body */
-body {
-    font-family: 'Work Sans', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    scroll-behavior: smooth;
-    background-color: #fdfdfd;
+
+.contain{
+position:relative;
+width:100%;
 }
 
-/* Navbar Enhancements */
-.navbar {
-    transition: 0.4s;
-    background-color: #fff;
-}
-.navbar .nav-link {
-    font-weight: 500;
-    color: #333 !important;
-    transition: 0.3s;
-}
-.navbar .nav-link:hover,
-.navbar .nav-item.active .nav-link {
-    color: #f39c12 !important;
+.image{
+display:block;
+width:100%;
+height:auto;
 }
 
-/* Breadcrumb */
-.breadcrum-bg {
-    background: #f8f9fa;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 2rem 0;
-}
-.breadcrum-bg h2 {
-    font-weight: 700;
-}
-.breadcrum-bg p a {
-    color: #f39c12;
-    text-decoration: none;
-}
-
-/* Product Grid */
-.contain {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-.contain:hover {
-    transform: scale(1.05);
-}
-.image {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-.overlay {
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: 0.5s ease;
-    background-color: rgba(58,64,129,0.65);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.contain:hover .overlay {
-    opacity: 1;
-}
-.text {
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 0 10px;
+.overlay{
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+height:100%;
+width:100%;
+opacity:0;
+transition:.5s ease;
+background-color:rgba(58,64,129,0.65);
 }
 
-/* Process Section */
-.w3l-feature-2 {
-    background: #f8f9fa;
-    padding: 4rem 0;
-}
-.w3l-feature-2 .three-grids-columns {
-    transition: transform 0.3s ease;
-    padding: 20px;
-}
-.w3l-feature-2 .three-grids-columns:hover {
-    transform: translateY(-10px);
-}
-.w3l-feature-2 .icon {
-    background: #f39c12;
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.2rem;
+.contain:hover .overlay{
+opacity:1;
 }
 
-/* Footer */
-footer {
-    background: #222;
-    color: #aaa;
-    padding: 30px 0;
-    text-align: center;
-}
-footer p {
-    margin-bottom: 0;
-    color: #aaa;
-}
-footer a {
-    color: #f39c12;
-    text-decoration: none;
-}
-footer a:hover {
-    color: #fff;
+.text{
+color:white;
+font-size:20px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
 }
 
-/* Back-to-top button */
-#movetop {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 18px;
-    background-color: #f39c12;
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-#movetop:hover {
-    background-color: #e67e22;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-    .fea-gd-vv {
-        justify-content: center;
-    }
-    .three-grids-columns {
-        margin-bottom: 20px;
-    }
-}
 </style>
 
 </head>
@@ -247,63 +131,104 @@ footer a:hover {
 <div class="fea-gd-vv text-center row">
 
 <!-- PRODUCT 1 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p1.jpg" class="image" alt="Drum Locking Ring">
+
 <div class="overlay">
 <div class="text">Drum Locking Ring</div>
 </div>
-</div>
+
 </div>
 
+</div>
+
+
 <!-- PRODUCT 2 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p2.jpg" class="image" alt="Jerry Can">
+
 <div class="overlay">
 <div class="text">35 Ltr Jerry Can</div>
 </div>
-</div>
+
 </div>
 
+</div>
+
+
 <!-- PRODUCT 3 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p3.jpg" class="image" alt="Open Top Barrel">
+
 <div class="overlay">
 <div class="text">Open Top Barrel</div>
 </div>
-</div>
+
 </div>
 
+</div>
+
+
 <!-- PRODUCT 4 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p4.jpg" class="image" alt="Drum Press Cap">
+
 <div class="overlay">
 <div class="text">Drum Press Cap</div>
 </div>
-</div>
+
 </div>
 
+</div>
+
+
 <!-- PRODUCT 5 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p7.jpg" class="image" alt="PP Cap">
+
 <div class="overlay">
 <div class="text">2 Inch PP Cap</div>
 </div>
-</div>
+
 </div>
 
+</div>
+
+
 <!-- PRODUCT 6 -->
+
 <div class="col-lg-4 col-md-6 mb-4">
+
 <div class="contain">
+
 <img src="assets/images/p8.jpg" class="image" alt="Spice Container">
+
 <div class="overlay">
 <div class="text">Spice Container</div>
 </div>
+
 </div>
+
 </div>
 
 </div>
@@ -332,23 +257,35 @@ footer a:hover {
 <div class="middle-section row mt-5 pt-3 text-center">
 
 <div class="three-grids-columns col-lg-3 col-sm-6">
+
 <div class="icon"><span>1</span></div>
+
 <h4>Study and Design</h4>
+
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-sm-0 mt-5">
+
 <div class="icon"><span>2</span></div>
+
 <h4>Development / Manufacturing</h4>
+
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-lg-0 mt-5">
+
 <div class="icon"><span>3</span></div>
+
 <h4>Inspection and Assembling</h4>
+
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-lg-0 mt-5">
+
 <div class="icon"><span>4</span></div>
+
 <h4>Mould Testing and Dispatch</h4>
+
 </div>
 
 </div>
@@ -371,8 +308,10 @@ footer a:hover {
 <div class="container text-center">
 
 <p class="text-muted mb-0 py-2">
-Copyright © 2026 Jagadambay Die Works Pvt Ltd  
+
+Copyright © 2021 Jagadambay Die Works Pvt Ltd  
 All Rights Reserved.
+
 </p>
 
 </div>
@@ -399,18 +338,28 @@ All Rights Reserved.
 <script src="assets/js/all.js"></script>
 
 <script>
-// Back-to-top button
+
 window.onscroll=function(){
+
 if(document.body.scrollTop>20 || document.documentElement.scrollTop>20){
+
 document.getElementById("movetop").style.display="block";
+
 }else{
+
 document.getElementById("movetop").style.display="none";
+
 }
+
 }
+
 function topFunction(){
+
 document.body.scrollTop=0;
 document.documentElement.scrollTop=0;
+
 }
+
 </script>
 
 </body>
