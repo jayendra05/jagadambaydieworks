@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 
@@ -13,15 +14,32 @@
 
 <style>
 
+/* PRODUCT CARD */
+
 .contain{
 position:relative;
 width:100%;
+overflow:hidden;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+transition:all 0.4s ease;
+background:#fff;
+}
+
+.contain:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 30px rgba(0,0,0,0.25);
 }
 
 .image{
 display:block;
 width:100%;
 height:auto;
+transition:transform .6s ease;
+}
+
+.contain:hover .image{
+transform:scale(1.1);
 }
 
 .overlay{
@@ -33,8 +51,15 @@ right:0;
 height:100%;
 width:100%;
 opacity:0;
-transition:.5s ease;
-background-color:rgba(58,64,129,0.65);
+transition:all .4s ease;
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.8),
+rgba(58,64,129,0.6)
+);
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .contain:hover .overlay{
@@ -42,13 +67,103 @@ opacity:1;
 }
 
 .text{
-color:white;
-font-size:20px;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+color:#fff;
+font-size:22px;
+font-weight:600;
+letter-spacing:1px;
+text-transform:uppercase;
 text-align:center;
+padding:10px 20px;
+border:2px solid #fff;
+border-radius:30px;
+background:rgba(0,0,0,0.3);
+}
+
+
+/* PROCESS SECTION INTERACTIVE */
+
+.three-grids-columns{
+background:#fff;
+padding:35px 20px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+transition:all .4s ease;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.three-grids-columns:hover{
+transform:translateY(-12px);
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* step number circle */
+
+.three-grids-columns .icon{
+width:70px;
+height:70px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#3a4081,#6c73ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:700;
+color:#fff;
+transition:all .4s ease;
+}
+
+/* animated icon */
+
+.three-grids-columns:hover .icon{
+transform:scale(1.2) rotate(10deg);
+background:linear-gradient(135deg,#ff6a00,#ffb347);
+}
+
+/* step title */
+
+.three-grids-columns h4{
+margin-top:18px;
+font-size:18px;
+font-weight:600;
+color:#333;
+transition:all .3s ease;
+}
+
+/* hover title color */
+
+.three-grids-columns:hover h4{
+color:#3a4081;
+}
+
+/* animated bottom border */
+
+.three-grids-columns::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:0%;
+height:4px;
+background:linear-gradient(90deg,#3a4081,#6c73ff);
+transition:width .4s ease;
+}
+
+.three-grids-columns:hover::after{
+width:100%;
+}
+
+/* mobile improvement */
+
+@media (max-width:768px){
+
+.text{
+font-size:18px;
+padding:8px 16px;
+}
+
 }
 
 </style>
@@ -130,105 +245,58 @@ text-align:center;
 
 <div class="fea-gd-vv text-center row">
 
-<!-- PRODUCT 1 -->
-
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p1.jpg" class="image" alt="Drum Locking Ring">
-
+<img src="assets/images/p1.jpg" class="image">
 <div class="overlay">
 <div class="text">Drum Locking Ring</div>
 </div>
-
 </div>
-
 </div>
-
-
-<!-- PRODUCT 2 -->
 
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p2.jpg" class="image" alt="Jerry Can">
-
+<img src="assets/images/p2.jpg" class="image">
 <div class="overlay">
 <div class="text">35 Ltr Jerry Can</div>
 </div>
-
 </div>
-
 </div>
-
-
-<!-- PRODUCT 3 -->
 
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p3.jpg" class="image" alt="Open Top Barrel">
-
+<img src="assets/images/p3.jpg" class="image">
 <div class="overlay">
 <div class="text">Open Top Barrel</div>
 </div>
-
 </div>
-
 </div>
-
-
-<!-- PRODUCT 4 -->
 
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p4.jpg" class="image" alt="Drum Press Cap">
-
+<img src="assets/images/p4.jpg" class="image">
 <div class="overlay">
 <div class="text">Drum Press Cap</div>
 </div>
-
 </div>
-
 </div>
-
-
-<!-- PRODUCT 5 -->
 
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p7.jpg" class="image" alt="PP Cap">
-
+<img src="assets/images/p7.jpg" class="image">
 <div class="overlay">
 <div class="text">2 Inch PP Cap</div>
 </div>
-
 </div>
-
 </div>
-
-
-<!-- PRODUCT 6 -->
 
 <div class="col-lg-4 col-md-6 mb-4">
-
 <div class="contain">
-
-<img src="assets/images/p8.jpg" class="image" alt="Spice Container">
-
+<img src="assets/images/p8.jpg" class="image">
 <div class="overlay">
 <div class="text">Spice Container</div>
 </div>
-
 </div>
-
 </div>
 
 </div>
@@ -257,35 +325,23 @@ text-align:center;
 <div class="middle-section row mt-5 pt-3 text-center">
 
 <div class="three-grids-columns col-lg-3 col-sm-6">
-
 <div class="icon"><span>1</span></div>
-
 <h4>Study and Design</h4>
-
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-sm-0 mt-5">
-
 <div class="icon"><span>2</span></div>
-
 <h4>Development / Manufacturing</h4>
-
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-lg-0 mt-5">
-
 <div class="icon"><span>3</span></div>
-
 <h4>Inspection and Assembling</h4>
-
 </div>
 
 <div class="three-grids-columns col-lg-3 col-sm-6 mt-lg-0 mt-5">
-
 <div class="icon"><span>4</span></div>
-
 <h4>Mould Testing and Dispatch</h4>
-
 </div>
 
 </div>
@@ -308,10 +364,8 @@ text-align:center;
 <div class="container text-center">
 
 <p class="text-muted mb-0 py-2">
-
 Copyright © 2021 Jagadambay Die Works Pvt Ltd  
 All Rights Reserved.
-
 </p>
 
 </div>
@@ -327,14 +381,9 @@ All Rights Reserved.
 </section>
 
 
-<!-- SCRIPTS -->
-
 <script src="assets/js/jquery-3.3.1.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 <script src="assets/js/all.js"></script>
 
 <script>
@@ -342,25 +391,20 @@ All Rights Reserved.
 window.onscroll=function(){
 
 if(document.body.scrollTop>20 || document.documentElement.scrollTop>20){
-
 document.getElementById("movetop").style.display="block";
-
 }else{
-
 document.getElementById("movetop").style.display="none";
-
 }
 
 }
 
 function topFunction(){
-
 document.body.scrollTop=0;
 document.documentElement.scrollTop=0;
-
 }
 
 </script>
 
 </body>
 </html>
+```
