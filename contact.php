@@ -1,65 +1,52 @@
 <?php
 
-    // Only process POST reqeusts.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove whitespace.
-        $name = strip_tags(trim($_POST["name"]));
-                $name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $mobile = trim($_POST["mobile"]);
-        $message = trim($_POST["message"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($mobile) OR empty($email) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Set a 400 (bad request) response code and exit.
-            http_response_code(400);
-            echo "Please complete the form and try again.";
-            exit;
-        }
+    // Sanitize inputs
+    $name    = htmlspecialchars(strip_tags(trim($_POST["name"])));
+    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    $mobile  = htmlspecialchars(trim($_POST["mobile"]));
+    $message = htmlspecialchars(trim($_POST["message"]));
 
-        // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "jayendra05mishra@gmail.com";
-
-        // Set the email subject.
-        $name = "$name";
-
-        // Build the email content.
-        $email_content = "Name: $name\n";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Mobile: $mobile\n\n";
-        $email_content .= "Message:\n$message\n";
-
-        // Build the email headers.
-        $email_headers = "From: $name <$email>";
-
-        function function_alert($message) { 
-      
-    // Display the alert box  
-            echo "<script>alert('$message');</script>"; 
-        } 
-
-        // Send the email.
-        if (mail($recipient, $mobile, $email_content, $email_headers)) {
-            // Set a 200 (okay) response code.
-            http_response_code(200);
-            // echo (alert("Thank You! Your message has been sent."));
-            function_alert("Thank You! Your message has been sent.");
-
-            // echo "<script> location.href='https://jagadambaydieworks.com/contact.html'; </script>";
-        } else {
-            // Set a 500 (internal server error) response code.
-            http_response_code(500);
-            // echo "Oops! Something went wrong and we couldn't send your message.";
-            function_alert("Oops! Something went wrong and we couldn't send your message.");
-        }
-
-    } else {
-        // Not a POST request, set a 403 (forbidden) response code.
-        http_response_code(403);
-        // echo "There was a problem with your submission, please try again.";
-        function_alert("There was a problem with your submission, please try again.");
+    // Validate inputs
+    if (empty($name) || empty($email) || empty($mobile) || empty($message)) {
+        echo "<script>alert('All fields are required!'); window.history.back();</script>";
+        exit;
     }
 
-?>
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format!'); window.history.back();</script>";
+        exit;
+    }
 
+    if (!preg_match('/^[0-9]{10}$/', $mobile)) {
+        echo "<script>alert('Invalid mobile number!'); window.history.back();</script>";
+        exit;
+    }
+
+    // Email details
+    $to = "jayendra05mishra@gmail.com";   // Change if needed
+    $subject = "New Contact Form Message from $name";
+
+    $body = "You have received a new message:\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Mobile: $mobile\n\n";
+    $body .= "Message:\n$message\n";
+
+    // Headers
+    $headers = "From: no-reply@yourdomain.com\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+    // Send mail
+    if (mail($to, $subject, $body, $headers)) {
+        echo "<script>alert('✅ Message sent successfully!'); window.location.href='contact.html';</script>";
+    } else {
+        echo "<script>alert('❌ Failed to send message. Try again later.'); window.history.back();</script>";
+    }
+
+} else {
+    echo "<script>alert('Invalid Request'); window.location.href='contact.html';</script>";
+}
+
+?>
